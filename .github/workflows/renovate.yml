@@ -20,6 +20,9 @@ permissions:
 
 jobs:
   renovate:
-    uses: iwamot/workflows/.github/workflows/renovate.yml@bd157c06147e8eda7fed40cf737b00eab131367c # v0.4.0
+    uses: iwamot/workflows/.github/workflows/renovate.yml@abf3e55832d6cc6312c9375a786b13e4021d7007 # v0.5.0
     with:
       log-level: ${{ inputs.log-level || 'info' }}
+    secrets:
+      RENOVATE_APP_ID: ${{ secrets.RENOVATE_APP_ID }}
+      RENOVATE_PRIVATE_KEY: ${{ secrets.RENOVATE_PRIVATE_KEY }}
