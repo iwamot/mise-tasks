@@ -8,6 +8,7 @@ iwamot's shared mise tasks.
 |------|---------|
 | `gha-lint` | Run a GitHub Actions lint suite (actionlint, ghalint, pinact, zizmor). Fixers run before checkers. |
 | `docker-lint` | Lint `Dockerfile` with hadolint. |
+| `renovate-lint` | Validate Renovate configuration files. Pass file paths as arguments, or omit to let `renovate-config-validator` auto-detect. |
 
 ## Usage
 

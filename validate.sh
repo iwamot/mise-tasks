@@ -9,6 +9,7 @@ mise install
 # Run shared lint tasks
 mise run gha-lint
 mise run docker-lint
+mise run renovate-lint
 
 # Check for uncommitted changes
 git diff --exit-code

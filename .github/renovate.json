@@ -16,6 +16,17 @@
       ],
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v?(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "description": "Track npm packages declared in mise file tasks (#MISE tools={...})",
+      "managerFilePatterns": [
+        "/(^|/)\\.mise/tasks/[^/]+$/"
+      ],
+      "matchStrings": [
+        "\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "npm"
     }
   ]
 }
