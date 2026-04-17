@@ -8,7 +8,9 @@
     {
       "customType": "regex",
       "description": "Track aqua tools declared in mise file tasks (#MISE tools={...})",
-      "fileMatch": ["(^|/)\\.mise/tasks/[^/]+$"],
+      "managerFilePatterns": [
+        "/(^|/)\\.mise/tasks/[^/]+$/"
+      ],
       "matchStrings": [
         "\"aqua:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
