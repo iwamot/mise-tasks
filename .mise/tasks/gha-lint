@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#MISE description="Run GitHub Actions lint suite"
+#MISE tools={"aqua:rhysd/actionlint"="1.7.12","aqua:suzuki-shunsuke/ghalint"="1.5.5","aqua:suzuki-shunsuke/pinact"="3.9.0","aqua:zizmorcore/zizmor"="1.24.1"}
+set -e
+
+cd "$MISE_PROJECT_ROOT"
+
+pinact run
+zizmor --fix .github/workflows/
+actionlint
+ghalint run

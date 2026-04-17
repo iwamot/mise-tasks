@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#MISE description="Lint Dockerfile with hadolint"
+#MISE tools={"aqua:hadolint/hadolint"="2.14.0"}
+set -e
+
+cd "$MISE_PROJECT_ROOT"
+
+hadolint Dockerfile
