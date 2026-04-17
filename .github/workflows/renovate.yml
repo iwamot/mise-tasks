@@ -23,3 +23,4 @@ jobs:
     uses: iwamot/workflows/.github/workflows/renovate.yml@bd157c06147e8eda7fed40cf737b00eab131367c # v0.4.0
     with:
       log-level: ${{ inputs.log-level || 'info' }}
+    secrets: inherit
