@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Validate Renovate configuration files"
-#MISE tools={"npm:renovate"="43.129.1"}
+#MISE tools={"npm:renovate"="43.130.0"}
 #USAGE arg "<files>" var=#true required=#false help="Files to validate (auto-detect if omitted)"
 set -e
 
