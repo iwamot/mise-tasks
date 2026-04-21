@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #MISE description="Lint Dockerfile with hadolint"
 #MISE tools={"aqua:hadolint/hadolint"="2.14.0"}
+#USAGE arg "<files>" var=#true required=#false help="Dockerfiles to lint (default: Dockerfile)"
 set -e
 
 cd "$MISE_PROJECT_ROOT"
 
-hadolint Dockerfile
+hadolint "${@:-Dockerfile}"
