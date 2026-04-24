@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Enable pre-commit (./validate.sh) and commit-msg (DCO) hooks (requires Git 2.54+)"
+set -e
+
+git config hook.validate.event pre-commit
+git config hook.validate.command ./validate.sh
+
+git config hook.dco.event commit-msg
+git config hook.dco.command 'f() { grep -q "^Signed-off-by: " "$1" || { echo "Missing Signed-off-by trailer" >&2; exit 1; }; }; f'
