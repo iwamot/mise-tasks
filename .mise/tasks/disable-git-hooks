@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#MISE description="Disable hooks configured by enable-git-hooks"
+set -e
+
+git config --remove-section hook.validate
+git config --remove-section hook.dco
