@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#MISE description="Prune redundant pnpm override entries"
+#MISE tools={"npm:pnpm-override-prune"={version="0.0.2", install_before="0d"}}
+set -e
+
+cd "$MISE_PROJECT_ROOT"
+
+pnpm-override-prune --fix
