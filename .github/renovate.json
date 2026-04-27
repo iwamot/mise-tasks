@@ -16,28 +16,6 @@
       ],
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v?(?<version>.+)$"
-    },
-    {
-      "customType": "regex",
-      "description": "Track pipx tools declared in mise file tasks (#MISE tools={...})",
-      "managerFilePatterns": [
-        "/(^|/)\\.mise/tasks/[^/]+$/"
-      ],
-      "matchStrings": [
-        "\"pipx:(?<depName>[^\"]+)\"\\s*=\\s*\\{[^}]*version\\s*=\\s*\"(?<currentValue>[^\"]+)\""
-      ],
-      "datasourceTemplate": "pypi"
-    },
-    {
-      "customType": "regex",
-      "description": "Track npm tools declared in mise file tasks (#MISE tools={...})",
-      "managerFilePatterns": [
-        "/(^|/)\\.mise/tasks/[^/]+$/"
-      ],
-      "matchStrings": [
-        "\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\\{[^}]*version\\s*=\\s*\"(?<currentValue>[^\"]+)\""
-      ],
-      "datasourceTemplate": "npm"
     }
   ]
 }

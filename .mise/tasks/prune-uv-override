@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-#MISE description="Prune redundant uv override entries"
-#MISE tools={"pipx:uv-override-prune"={version="0.0.7", install_before="0d"}}
-set -e
-
-cd "$MISE_PROJECT_ROOT"
-
-uv-override-prune --fix

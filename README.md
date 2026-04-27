@@ -10,8 +10,6 @@ iwamot's shared mise tasks.
 | `docker-lint` | Lint Dockerfiles with hadolint. Pass file paths as arguments, or omit to default to `Dockerfile`. |
 | `enable-git-hooks` | Register a pre-commit hook (`./validate.sh`) and a commit-msg hook (DCO `Signed-off-by` check) via Git config-based hooks. Requires Git 2.54+. |
 | `disable-git-hooks` | Remove the hooks registered by `enable-git-hooks`. |
-| `prune-uv-override` | Run [`uv-override-prune --fix`](https://github.com/iwamot/uv-override-prune) to remove redundant override entries from `pyproject.toml` / `uv.toml`. |
-| `prune-pnpm-override` | Run [`pnpm-override-prune --fix`](https://github.com/iwamot/pnpm-override-prune) to remove redundant override entries from `package.json` / `pnpm-workspace.yaml`. |
 
 ## Usage
 
