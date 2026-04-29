@@ -6,4 +6,9 @@ git config hook.validate.event pre-commit
 git config hook.validate.command ./validate.sh
 
 git config hook.dco.event commit-msg
-git config hook.dco.command 'f() { grep -q "^Signed-off-by: " "$1" || { echo "Missing Signed-off-by trailer" >&2; exit 1; }; }; f'
+DCO_HOOK_CMD=$(
+  cat <<'EOF'
+f() { grep -q "^Signed-off-by: " "$1" || { echo "Missing Signed-off-by trailer" >&2; exit 1; }; }; f
+EOF
+)
+git config hook.dco.command "$DCO_HOOK_CMD"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#MISE description="Lint shell scripts with shfmt and shellcheck"
+#MISE tools={"aqua:koalaman/shellcheck"="0.11.0","aqua:mvdan/sh"="3.13.1"}
+set -e
+
+cd "$MISE_PROJECT_ROOT"
+
+shfmt -w -i 2 .
+shfmt -f . | xargs -r shellcheck

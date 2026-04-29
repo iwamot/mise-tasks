@@ -8,6 +8,7 @@ mise install
 
 # Run shared lint tasks
 mise run gha-lint
+mise run shell-lint
 mise run docker-lint Dockerfile.selftest
 
 # Check for uncommitted changes
