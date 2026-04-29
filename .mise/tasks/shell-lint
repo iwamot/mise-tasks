@@ -5,5 +5,11 @@ set -e
 
 cd "$MISE_PROJECT_ROOT"
 
-shfmt -w -i 2 .
-shfmt -f . | xargs -r shellcheck
+# shfmt -f detects shell files (extension or shebang) while walking the tree;
+# intersect with git ls-files so vendored scripts (.venv, node_modules, ...)
+# are skipped without per-repo ignore lists.
+mapfile -t shell_files < <(shfmt -f . | grep -Fx -f <(git ls-files) || true)
+[[ ${#shell_files[@]} -eq 0 ]] && exit 0
+
+shfmt -w -i 2 "${shell_files[@]}"
+shellcheck "${shell_files[@]}"
