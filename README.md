@@ -8,7 +8,7 @@ iwamot's shared mise tasks.
 |------|---------|
 | `gha-lint` | Run a GitHub Actions lint suite (actionlint, ghalint, pinact, zizmor). Fixers run before checkers. |
 | `docker-lint` | Lint Dockerfiles with hadolint. Pass file paths as arguments, or omit to default to `Dockerfile`. |
-| `shell-lint` | Lint shell scripts with shfmt (formatter, runs first) and shellcheck. Detects files via `shfmt -f`, so extensionless shebang scripts are also covered. |
+| `shell-lint` | Lint shell scripts with shfmt (formatter, runs first) and shellcheck. Detects files via `shfmt -f` (covers extensionless shebang scripts) intersected with `git ls-files`, so vendored scripts under `.venv`, `node_modules`, etc. are skipped automatically. |
 | `enable-git-hooks` | Register a pre-commit hook (`./validate.sh`) and a commit-msg hook (DCO `Signed-off-by` check) via Git config-based hooks. Requires Git 2.54+. |
 | `disable-git-hooks` | Remove the hooks registered by `enable-git-hooks`. |
 
