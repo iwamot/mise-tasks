@@ -6,4 +6,4 @@ set -e
 
 cd "$MISE_PROJECT_ROOT"
 
-hadolint "${@:-Dockerfile}"
+hadolint --failure-threshold=style "${@:-Dockerfile}"
