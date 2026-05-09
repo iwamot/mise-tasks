@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#MISE description="Prune unused entries from tracked .gitignore files"
+#MISE tools={"github:iwamot/gitignore-prune"="0.0.2"}
+set -e
+
+cd "$MISE_PROJECT_ROOT"
+
+gitignore-prune --fix
