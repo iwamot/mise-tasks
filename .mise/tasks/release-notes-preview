@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#MISE description="Preview the next release's auto-generated notes via GitHub API (no tag/release is created). Pass the next tag name as an argument; defaults to vNEXT."
+set -e
+
+cd "$MISE_PROJECT_ROOT"
+
+next_tag="${1:-vNEXT}"
+repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+prev=$(gh release view --json tagName -q .tagName 2>/dev/null || true)
+
+args=(-f "tag_name=${next_tag}")
+[[ -n "$prev" ]] && args+=(-f "previous_tag_name=${prev}")
+
+gh api "repos/${repo}/releases/generate-notes" "${args[@]}" --jq '.body'
