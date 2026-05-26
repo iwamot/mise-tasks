@@ -5,7 +5,7 @@ set -e
 
 cd "$MISE_PROJECT_ROOT"
 
-pinact run
+pinact run --verify
 zizmor --fix --pedantic .github/workflows/
 actionlint
 ghalint run
