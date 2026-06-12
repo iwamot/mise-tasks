@@ -1,6 +1,3 @@
-min_version = "2026.4.8"
-
-[settings]
-install_before = "1d"
+min_version = "2026.6.3"
 
 [tools]
