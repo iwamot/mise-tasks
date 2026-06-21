@@ -16,7 +16,7 @@ git config hook.dco.command "$DCO_HOOK_CMD"
 git config hook.conventional.event commit-msg
 CONVENTIONAL_HOOK_CMD=$(
   cat <<'EOF'
-f() { head -n1 "$1" | grep -qE '^(feat|fix|chore|docs)(\(.+\))?!?: .+' || { echo "Subject must follow Conventional Commits (allowed: feat, fix, chore, docs)" >&2; exit 1; }; }; f
+f() { head -n1 "$1" | grep -qE '^(feat|fix|chore|docs|article)(\(.+\))?!?: .+' || { echo "Subject must follow Conventional Commits (allowed: feat, fix, chore, docs, article)" >&2; exit 1; }; }; f
 EOF
 )
 git config hook.conventional.command "$CONVENTIONAL_HOOK_CMD"
