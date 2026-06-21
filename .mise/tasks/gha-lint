@@ -5,6 +5,12 @@ set -e
 
 cd "$MISE_PROJECT_ROOT"
 
+# pinact verifies SHA pins against the GitHub API, which rate-limits
+# unauthenticated requests. CI already provides GITHUB_TOKEN, so this only fills
+# it in for local runs, falling back to the gh CLI's token when available.
+: "${GITHUB_TOKEN:=$(gh auth token 2>/dev/null || true)}"
+export GITHUB_TOKEN
+
 pinact run --verify
 zizmor --fix --pedantic .github/workflows/
 actionlint
