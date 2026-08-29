@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Lint shell scripts with shfmt and shellcheck"
-#MISE tools={"aqua:koalaman/shellcheck"="0.11.0","aqua:mvdan/sh"="3.13.1"}
+#MISE tools={"aqua:koalaman/shellcheck"="0.11.0","aqua:mvdan/sh"="3.14.0"}
 set -e
 
 cd "$MISE_PROJECT_ROOT"
