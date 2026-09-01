@@ -12,6 +12,8 @@ cd "$MISE_PROJECT_ROOT"
 export GITHUB_TOKEN
 
 pinact run --verify
-zizmor --fix --pedantic .github/workflows/
+# "." so composite actions (<name>/action.yml) are audited alongside workflows.
+zizmor --fix --pedantic .
 actionlint
 ghalint run
+ghalint run-action

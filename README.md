@@ -6,7 +6,7 @@ iwamot's shared mise tasks.
 
 | Task | Purpose |
 |------|---------|
-| `gha-lint` | Run a GitHub Actions lint suite (actionlint, ghalint, pinact, zizmor). Fixers run before checkers. |
+| `gha-lint` | Run a GitHub Actions lint suite (actionlint, ghalint, pinact, zizmor) over workflows and composite actions (`action.yml` anywhere in the repo). Fixers run before checkers. |
 | `docker-lint` | Lint Dockerfiles with hadolint. Pass file paths as arguments, or omit to default to `Dockerfile`. |
 | `shell-lint` | Lint shell scripts with shfmt (formatter, runs first) and shellcheck. Detects files via `shfmt -f` (covers extensionless shebang scripts) intersected with `git ls-files`, so vendored scripts under `.venv`, `node_modules`, etc. are skipped automatically. |
 | `gitignore-prune` | Prune entries from tracked `.gitignore` files that no longer match anything in the working tree (runs `gitignore-prune --fix`). Comments, blank lines, and entry order are preserved; submodules are skipped. Best run manually — the verdict depends on the current working tree, so the same check returns different results in CI than in a developer checkout. |
