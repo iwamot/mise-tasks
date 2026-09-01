@@ -10,7 +10,7 @@ iwamot's shared mise tasks.
 | `docker-lint` | Lint Dockerfiles with hadolint. Pass file paths as arguments, or omit to default to `Dockerfile`. |
 | `shell-lint` | Lint shell scripts with shfmt (formatter, runs first) and shellcheck. Detects files via `shfmt -f` (covers extensionless shebang scripts) intersected with `git ls-files`, so vendored scripts under `.venv`, `node_modules`, etc. are skipped automatically. |
 | `gitignore-prune` | Prune entries from tracked `.gitignore` files that no longer match anything in the working tree (runs `gitignore-prune --fix`). Comments, blank lines, and entry order are preserved; submodules are skipped. Best run manually — the verdict depends on the current working tree, so the same check returns different results in CI than in a developer checkout. |
-| `enable-git-hooks` | Register a pre-commit hook (`./validate.sh`) and a commit-msg hook (DCO `Signed-off-by` check) via Git config-based hooks. Requires Git 2.54+. |
+| `enable-git-hooks` | Register a pre-commit hook (`./validate.sh`) and commit-msg hooks (DCO `Signed-off-by` check, and a Conventional Commits subject check that allows `feat`, `fix`, `chore`, `docs`, `article`) via Git config-based hooks. Requires Git 2.54+. |
 | `disable-git-hooks` | Remove the hooks registered by `enable-git-hooks`. |
 | `release-notes-preview` | Preview the next release's auto-generated notes via the GitHub API (no tag/release is created). Reuses `.github/release.yml` categorization. Pass the next tag name as an argument (e.g. `mise run release-notes-preview v1.2.3`); defaults to `vNEXT`. Requires `gh` to be authenticated. |
 
@@ -20,7 +20,7 @@ In your repository's `mise.toml`:
 
 ```toml
 [task_config]
-includes = ["git::https://github.com/iwamot/mise-tasks.git//.mise/tasks?ref=v0.9.0"]
+includes = ["git::https://github.com/iwamot/mise-tasks.git//.mise/tasks?ref=vX.X.X"]
 ```
 
 Then run a task locally or in CI:
