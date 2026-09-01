@@ -2,6 +2,10 @@
 #MISE description="Disable hooks configured by enable-git-hooks"
 set -e
 
-git config --remove-section hook.validate
-git config --remove-section hook.dco
-git config --remove-section hook.conventional
+# `git config --remove-section` fails on a missing section, so remove only the
+# sections that are present. This keeps the task safe to run in any state.
+for section in hook.validate hook.dco hook.conventional; do
+  if git config --get-regexp "^${section}\." >/dev/null; then
+    git config --remove-section "$section"
+  fi
+done
