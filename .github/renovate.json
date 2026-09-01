@@ -7,12 +7,12 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Track aqua tools declared in mise file tasks (#MISE tools={...})",
+      "description": "Track aqua and github backend tools declared in mise file tasks (#MISE tools={...})",
       "managerFilePatterns": [
         "/(^|/)\\.mise/tasks/[^/]+$/"
       ],
       "matchStrings": [
-        "\"aqua:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+        "\"(?:aqua|github):(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v?(?<version>.+)$"
