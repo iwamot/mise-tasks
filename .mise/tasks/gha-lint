@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Run GitHub Actions lint suite"
-#MISE tools={"aqua:koalaman/shellcheck"="0.11.0","github:kjanat/actionlint"="1.17.0","aqua:suzuki-shunsuke/ghalint"="1.5.6","aqua:suzuki-shunsuke/pinact"="5.0.0","aqua:zizmorcore/zizmor"="1.31.1"}
+#MISE tools={"aqua:koalaman/shellcheck"="0.11.0","github:jdx/jactionlint"="2.3.0","aqua:suzuki-shunsuke/ghalint"="1.5.6","aqua:suzuki-shunsuke/pinact"="5.0.0","aqua:zizmorcore/zizmor"="1.31.1"}
 set -e
 
 cd "$MISE_PROJECT_ROOT"
@@ -14,10 +14,6 @@ export GITHUB_TOKEN
 pinact run --verify
 # "." so composite actions (<name>/action.yml) are audited alongside workflows.
 zizmor --fix --pedantic .
-# actionlint comes from the kjanat/actionlint fork: upstream rhysd/actionlint has
-# had no release since 1.7.12 (2026-03) and rejects the "$/" self-repository
-# syntax that zizmor's self-repository audit rewrites "./" references into
-# (rhysd/actionlint#711). Switch back once an upstream release accepts "$/".
-actionlint
+jactionlint
 ghalint run
 ghalint run-action
