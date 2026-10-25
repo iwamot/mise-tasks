@@ -5,7 +5,4 @@ experimental = true
 lockfile = true
 minimum_release_age = "1d"
 
-[tool_config]
-locked = true
-
 [tools]
