@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Preview the next release's auto-generated notes via GitHub API (no tag/release is created). Pass the next tag name as an argument; defaults to vNEXT."
-#MISE tools={gh="2.103.0"}
+#MISE tools={gh="2.103.2"}
 set -e
 
 cd "$MISE_PROJECT_ROOT"
