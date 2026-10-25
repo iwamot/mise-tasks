@@ -5,4 +5,15 @@ experimental = true
 lockfile = true
 minimum_release_age = "1d"
 
+# Declare self-validation tools here as well as in the distributed task headers.
+# mise 2026.10.19 otherwise prunes task-only lock entries in a mise-tasks checkout.
 [tools]
+"aqua:hadolint/hadolint" = "2.15.1"
+"aqua:koalaman/shellcheck" = "0.11.0"
+"aqua:mvdan/sh" = "3.14.1"
+"aqua:suzuki-shunsuke/ghalint" = "1.5.6"
+"aqua:suzuki-shunsuke/pinact" = "5.0.1"
+"aqua:zizmorcore/zizmor" = "1.31.1"
+"gh" = "2.103.0"
+"github:iwamot/gitignore-prune" = "1.0.2"
+"github:jdx/jactionlint" = "2.3.0"
