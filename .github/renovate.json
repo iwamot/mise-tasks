@@ -12,10 +12,39 @@
         "/(^|/)\\.mise/tasks/[^/]+$/"
       ],
       "matchStrings": [
-        "\"(?:aqua|github):(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+        "\"(?<backend>aqua|github):(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
       ],
+      "datasourceTemplate": "{{#if (equals backend 'aqua')}}github-tags{{else}}github-releases{{/if}}",
+      "extractVersionTemplate": "^v?(?<version>.+)$",
+      "packageNameTemplate": "{{depName}}"
+    },
+    {
+      "customType": "regex",
+      "description": "Track gh declared in mise file task headers",
+      "managerFilePatterns": [
+        "/(^|/)\\.mise/tasks/[^/]+$/"
+      ],
+      "matchStrings": [
+        "#\\s*MISE\\s+tools\\s*=\\s*\\{[^\\r\\n}]*?(?:\"gh\"|\\bgh)\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "gh",
+      "packageNameTemplate": "cli/cli",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v?(?<version>.+)$"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Update each tool together in mise.toml and distributed task headers",
+      "matchManagers": [
+        "mise",
+        "custom.regex"
+      ],
+      "matchFileNames": [
+        "mise.toml",
+        ".mise/tasks/**"
+      ],
+      "groupName": "mise tool {{packageName}}"
     }
   ]
 }
