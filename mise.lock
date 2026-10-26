@@ -500,74 +500,74 @@ url_api = "https://api.github.com/repos/cli/cli/releases/assets/670305204"
 provenance = "github-attestations"
 
 [[tools."github:iwamot/gitignore-prune"]]
-version = "1.0.2"
+version = "1.0.3"
 backend = "github:iwamot/gitignore-prune"
-specifiers = ["1.0.2"]
+specifiers = ["v1.0.3"]
 
 [tools."github:iwamot/gitignore-prune"."platforms.linux-arm64"]
-checksum = "sha256:20374c5706a057a2ea2763f36f6f7e7a8dccd530412de0fad1cd1896ccfb9e00"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991752"
+checksum = "sha256:588b34dfc1fe28c2c9d1007d65b4294a2eed8e09b9abb9fec3c7a3ec05231f16"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475015"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.linux-arm64-musl"]
-checksum = "sha256:20374c5706a057a2ea2763f36f6f7e7a8dccd530412de0fad1cd1896ccfb9e00"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991752"
+checksum = "sha256:588b34dfc1fe28c2c9d1007d65b4294a2eed8e09b9abb9fec3c7a3ec05231f16"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475015"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.linux-x64"]
-checksum = "sha256:ee76758c18c7100503840ddc52824a2565614558c0fa27e5a83edefed4ed5bbc"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991750"
+checksum = "sha256:65844d11a7623e118155dbca930d68f24f4185c3eba242e30b647a3f72c03ac9"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475014"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.linux-x64-baseline"]
-checksum = "sha256:ee76758c18c7100503840ddc52824a2565614558c0fa27e5a83edefed4ed5bbc"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991750"
+checksum = "sha256:65844d11a7623e118155dbca930d68f24f4185c3eba242e30b647a3f72c03ac9"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475014"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.linux-x64-musl"]
-checksum = "sha256:ee76758c18c7100503840ddc52824a2565614558c0fa27e5a83edefed4ed5bbc"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991750"
+checksum = "sha256:65844d11a7623e118155dbca930d68f24f4185c3eba242e30b647a3f72c03ac9"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475014"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.linux-x64-musl-baseline"]
-checksum = "sha256:ee76758c18c7100503840ddc52824a2565614558c0fa27e5a83edefed4ed5bbc"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991750"
+checksum = "sha256:65844d11a7623e118155dbca930d68f24f4185c3eba242e30b647a3f72c03ac9"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475014"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.macos-arm64"]
-checksum = "sha256:36b0be845b88ea157c20b37e19ee98c995d52783623323ac49898dded871db6b"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991751"
+checksum = "sha256:9f597173adf917b013ed9188513934f258ddfee7a91fbb6dcec74ee5060103da"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475017"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.macos-x64"]
-checksum = "sha256:dee7d2a5f2105204cfbe18b9ed4fdf0ec7b61ee1559fe73e36b7ec1b00c948e9"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991753"
+checksum = "sha256:d02bd25817ef99c4875e369568ea6a812173ec8cd1de490e30f0cdb066c28d94"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475012"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.macos-x64-baseline"]
-checksum = "sha256:dee7d2a5f2105204cfbe18b9ed4fdf0ec7b61ee1559fe73e36b7ec1b00c948e9"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991753"
+checksum = "sha256:d02bd25817ef99c4875e369568ea6a812173ec8cd1de490e30f0cdb066c28d94"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475012"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.windows-x64"]
-checksum = "sha256:ad8e409c1061d3e99f2d3c57666bfc7cb4fcbebb778dd69407b8250f04f0e46b"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_windows_amd64.zip"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991767"
+checksum = "sha256:aa02756e65935d20c98b3b346b57653933be766c9f654a85aa8dae06991a2297"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_windows_amd64.zip"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475053"
 provenance = "github-attestations"
 
 [tools."github:iwamot/gitignore-prune"."platforms.windows-x64-baseline"]
-checksum = "sha256:ad8e409c1061d3e99f2d3c57666bfc7cb4fcbebb778dd69407b8250f04f0e46b"
-url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.2/gitignore-prune_1.0.2_windows_amd64.zip"
-url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/627991767"
+checksum = "sha256:aa02756e65935d20c98b3b346b57653933be766c9f654a85aa8dae06991a2297"
+url = "https://github.com/iwamot/gitignore-prune/releases/download/v1.0.3/gitignore-prune_1.0.3_windows_amd64.zip"
+url_api = "https://api.github.com/repos/iwamot/gitignore-prune/releases/assets/678475053"
 provenance = "github-attestations"
 
 [[tools."github:jdx/jactionlint"]]
