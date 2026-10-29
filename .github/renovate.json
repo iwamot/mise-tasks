@@ -12,7 +12,7 @@
         "/(^|/)\\.mise/tasks/[^/]+$/"
       ],
       "matchStrings": [
-        "\"(?<backend>aqua|github):(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+        "\"(?<backend>aqua|github):(?<depName>[^\"]+)\"\\s*=\\s*(?:\\{\\s*version\\s*=\\s*)?\"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "{{#if (equals backend 'aqua')}}github-tags{{else}}github-releases{{/if}}",
       "extractVersionTemplate": "^v?(?<version>.+)$",

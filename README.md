@@ -6,7 +6,7 @@ iwamot's shared mise tasks.
 
 | Task | Purpose |
 |------|---------|
-| `gha-lint` | Run a GitHub Actions lint suite ([jactionlint](https://github.com/jdx/jactionlint), ghalint, pinact, zizmor) over workflows and composite actions (`action.yml` anywhere in the repo). Fixers run before checkers. |
+| `gha-lint` | Run a GitHub Actions lint suite ([jactionlint](https://github.com/jdx/jactionlint), ghalint, pinact, zizmor) over workflows and composite actions (`action.yml` anywhere in the repo). Fixers run before checkers. Verify action dependency lockfiles with gh-actions-lock when present. |
 | `docker-lint` | Lint Dockerfiles with hadolint. Pass file paths as arguments, or omit to default to `Dockerfile`. |
 | `shell-lint` | Lint shell scripts with shfmt (formatter, runs first) and shellcheck. Detects files via `shfmt -f` (covers extensionless shebang scripts) intersected with `git ls-files`, so vendored scripts under `.venv`, `node_modules`, etc. are skipped automatically. |
 | `gitignore-prune` | Prune entries from tracked `.gitignore` files that no longer match anything in the working tree (runs `gitignore-prune --fix`). Comments, blank lines, and entry order are preserved; submodules are skipped. Best run manually — the verdict depends on the current working tree, so the same check returns different results in CI than in a developer checkout. |
@@ -33,6 +33,8 @@ mise run docker-lint
 Each task declares its own `tools.*`, so the required binaries are installed on demand. You don't need to add them to your repo's `mise.toml`.
 
 Each repository can pick whichever tasks fit its setup (e.g. `gha-lint` only when there's no Dockerfile).
+
+When `.github/workflows/actions.lock` exists, `gha-lint` verifies its direct and transitive action pins against GitHub. It uses `GITHUB_TOKEN` from CI or the local `gh` login. An outdated or invalid lockfile fails the task; regenerate it with `gh-actions-lock` when changing action references.
 
 ## Validation
 

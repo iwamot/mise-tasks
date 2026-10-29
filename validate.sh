@@ -14,5 +14,8 @@ mise run docker-lint Dockerfile.selftest
 # Exercise shared shell-file discovery against real temporary repositories.
 bash tests/shell-lint.sh
 
+# Exercise optional action lockfile checks with real lint tools and dependencies.
+bash tests/gha-lint.sh
+
 # Check for uncommitted changes
 git diff --exit-code
