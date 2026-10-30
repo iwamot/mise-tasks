@@ -19,6 +19,9 @@ iwamot's shared mise tasks.
 In your repository's `mise.toml`:
 
 ```toml
+[settings]
+experimental = true
+
 [task_config]
 includes = ["git::https://github.com/iwamot/mise-tasks.git//.mise/tasks?ref=vX.X.X"]
 ```
