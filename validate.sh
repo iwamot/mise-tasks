@@ -17,5 +17,8 @@ bash tests/shell-lint.sh
 # Exercise optional action lockfile checks with real lint tools and dependencies.
 bash tests/gha-lint.sh
 
+# Exercise license decisions with real installed local dependencies.
+bash tests/licenses.sh
+
 # Check for uncommitted changes
 git diff --exit-code

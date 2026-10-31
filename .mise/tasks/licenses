@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+#MISE description="Check dependency licenses against the shared allowlist"
+#USAGE arg "<ecosystem>" help="Dependency ecosystem" { choices "go" "python" "node" }
+#USAGE arg "[licenses]" var=#true help="Additional exact license names allowed by this repository"
+#USAGE flag "--ignore-package <package>" help="Python package checked separately by the caller"
+set -euo pipefail
+
+cd "$MISE_PROJECT_ROOT"
+
+# Licenses that may ship alongside MIT code: permissive ones, plus MPL-2.0,
+# whose terms stay with its own files. Matching is exact, including expressions.
+allowed_licenses=(
+  0BSD
+  Apache-2.0
+  BlueOak-1.0.0
+  BSD-2-Clause
+  BSD-3-Clause
+  CC0-1.0
+  CNRI-Python
+  ISC
+  MIT
+  MIT-0
+  MIT-CMU
+  MPL-2.0
+  PSF-2.0
+  Python-2.0
+  Zlib
+)
+# Usage exports variadic values as a shell-quoted string.
+extra_licenses=()
+eval "extra_licenses=(${usage_licenses:-})"
+
+case "${usage_ecosystem:?}" in
+go)
+  allowed_licenses+=("${extra_licenses[@]}")
+  go-licenses check ./... --allowed_licenses="$(IFS=',' && echo "${allowed_licenses[*]}")"
+  ;;
+python)
+  allowed_licenses+=(
+    # Names from license classifiers and free-form License fields
+    "Apache License 2.0"
+    "Apache Software License"
+    "BSD License"
+    "ISC License (ISCL)"
+    "MIT License"
+    "Mozilla Public License 2.0 (MPL 2.0)"
+    "Python Software Foundation License"
+    # SPDX expressions
+    "Apache-2.0 AND CNRI-Python"
+    "Apache-2.0 AND MIT"
+    "Apache-2.0 OR BSD-2-Clause"
+    "Apache-2.0 OR BSD-3-Clause"
+    "Apache-2.0 OR MIT"
+    "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0"
+    "MPL-2.0 AND (Apache-2.0 OR MIT)"
+    "MPL-2.0 AND MIT"
+    "${extra_licenses[@]}"
+  )
+  ignore_args=()
+  if [[ -n "${usage_ignore_package:-}" ]]; then
+    ignore_args=(--ignore-packages "$usage_ignore_package")
+  fi
+  uv run pip-licenses "${ignore_args[@]}" --allow-only="$(IFS=';' && echo "${allowed_licenses[*]}")"
+  ;;
+node)
+  allowed_licenses+=(
+    # SPDX expressions and free-form license fields
+    "(AFL-2.1 OR BSD-3-Clause)"
+    "(BSD-2-Clause OR MIT OR Apache-2.0)"
+    "MIT OR Apache"
+    "${extra_licenses[@]}"
+  )
+  aube licenses --json --long | node -e '
+      const { existsSync } = require("node:fs");
+      const allowed = new Set(process.argv.slice(1));
+      let raw = "";
+      process.stdin.on("data", (chunk) => (raw += chunk));
+      process.stdin.on("end", () => {
+        // Optional dependencies for other platforms may not be installed,
+        // so aube has no package.json to read their license from.
+        const rejected = JSON.parse(raw).filter(
+          (pkg) => !allowed.has(pkg.license) && existsSync(pkg.path),
+        );
+        for (const pkg of rejected) {
+          console.error(pkg.name + "@" + pkg.version + ": " + pkg.license);
+        }
+        if (rejected.length > 0) {
+          process.exit(1);
+        }
+      });
+    ' "${allowed_licenses[@]}"
+  ;;
+esac
