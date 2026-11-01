@@ -1,9 +1,12 @@
-min_version = "2026.10.19"
+min_version = "2026.10.25"
 
 [settings]
 experimental = true
 lockfile = true
 minimum_release_age = "1d"
+
+[tool_config]
+locked = true
 
 # Declare self-validation tools here as well as in the distributed task headers.
 # mise 2026.10.19 otherwise prunes task-only lock entries in a mise-tasks checkout.
@@ -17,6 +20,6 @@ node = "26.13.0"
 "aqua:suzuki-shunsuke/pinact" = "5.0.2"
 "aqua:zizmorcore/zizmor" = "1.31.1"
 "gh" = "2.103.3"
-"github:github/gh-actions-lock" = { version = "0.4.0", bin = "gh-actions-lock" }
+"github:github/gh-actions-lock" = { version = "v0.4.0", bin = "gh-actions-lock" }
 "github:iwamot/gitignore-prune" = "v1.0.3"
 "github:jdx/jactionlint" = "v2.4.0"
