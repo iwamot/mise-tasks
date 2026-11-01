@@ -561,7 +561,7 @@ provenance = "github-attestations"
 [[tools."github:github/gh-actions-lock"]]
 version = "0.4.0"
 backend = "github:github/gh-actions-lock"
-specifiers = ["0.4.0"]
+specifiers = ["v0.4.0"]
 
 [tools."github:github/gh-actions-lock"."platforms.linux-arm64"]
 checksum = "sha256:7de0e440274688b8ddcbb6f44ce686aaebbe17a54a3052ebc11d4bae9f641fa2"
