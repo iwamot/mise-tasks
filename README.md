@@ -6,7 +6,7 @@ iwamot's shared mise tasks.
 
 | Task | Purpose |
 |------|---------|
-| `gha-lint` | Run a GitHub Actions lint suite ([jactionlint](https://github.com/jdx/jactionlint), ghalint, pinact, zizmor) over workflows and composite actions (`action.yml` anywhere in the repo). Fixers run before checkers. Verify action dependency lockfiles with gh-actions-lock when present. |
+| `gha-lint` | Run a GitHub Actions lint suite ([jactionlint](https://github.com/jdx/jactionlint), ghalint, pinact, zizmor) over workflows and composite actions (`action.yml` anywhere in the repo). Fixers run before checkers. Check calls to remote actions and reusable workflows against what they declare at the pinned ref. Verify action dependency lockfiles with gh-actions-lock when present. |
 | `docker-lint` | Lint Dockerfiles with hadolint. Pass file paths as arguments, or omit to default to `Dockerfile`. |
 | `licenses` | Check dependency licenses for `go`, `python`, or `node` against a shared allowlist of permissive licenses and MPL-2.0. Additional arguments allow exact license names for the caller. |
 | `shell-lint` | Lint shell scripts with shfmt (formatter, runs first) and shellcheck. Detects files via `shfmt -f` (covers extensionless shebang scripts) intersected with `git ls-files`, so vendored scripts under `.venv`, `node_modules`, etc. are skipped automatically. |
@@ -37,6 +37,8 @@ mise run docker-lint
 The lint tasks declare their own `tools.*`, so their binaries are installed on demand. The `licenses` task uses the caller's dependency environment, as described below.
 
 Each repository can pick whichever tasks fit its setup (e.g. `gha-lint` only when there's no Dockerfile).
+
+`gha-lint` looks up each remote action and reusable workflow a workflow calls, at its pinned ref, and fails on an input or secret that does not match what it declares. Permissions a reusable workflow needs are not part of this check. The lookups use `GITHUB_TOKEN` from CI or the local `gh` login.
 
 When `.github/workflows/actions.lock` exists, `gha-lint` verifies its direct and transitive action pins against GitHub. It uses `GITHUB_TOKEN` from CI or the local `gh` login. An outdated or invalid lockfile fails the task; regenerate it with `gh-actions-lock` when changing action references.
 
