@@ -11,7 +11,7 @@ locked = true
 # Declare self-validation tools here as well as in the distributed task headers.
 # mise 2026.10.19 otherwise prunes task-only lock entries in a mise-tasks checkout.
 [tools]
-"aqua:aubepkg/aube" = "2.8.5"
+"aqua:aubepkg/aube" = "2.9.0"
 node = "26.13.0"
 "aqua:hadolint/hadolint" = "2.15.1"
 "aqua:koalaman/shellcheck" = "0.11.0"
