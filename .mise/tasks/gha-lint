@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #MISE description="Run GitHub Actions lint suite"
-#MISE tools={"aqua:koalaman/shellcheck"="0.11.0","github:jdx/jactionlint"="v2.4.0","aqua:suzuki-shunsuke/ghalint"="1.6.0","aqua:suzuki-shunsuke/pinact"="5.0.2","aqua:zizmorcore/zizmor"="1.32.0","github:github/gh-actions-lock"={version="v0.4.1",bin="gh-actions-lock"}}
+#MISE tools={"aqua:koalaman/shellcheck"="0.11.0","github:jdx/jactionlint"="v2.5.0","aqua:suzuki-shunsuke/ghalint"="1.6.0","aqua:suzuki-shunsuke/pinact"="5.0.2","aqua:zizmorcore/zizmor"="1.32.0","github:github/gh-actions-lock"={version="v0.4.1",bin="gh-actions-lock"}}
 set -e
 
 cd "$MISE_PROJECT_ROOT"
