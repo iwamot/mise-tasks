@@ -21,5 +21,5 @@ node = "26.13.1"
 "aqua:zizmorcore/zizmor" = "1.32.0"
 "gh" = "2.104.0"
 "github:github/gh-actions-lock" = { version = "v0.4.1", bin = "gh-actions-lock" }
-"github:iwamot/gitignore-prune" = "v1.0.3"
+"github:iwamot/gitignore-prune" = "v1.0.4"
 "github:jdx/jactionlint" = "v2.6.0"
