@@ -8,12 +8,25 @@ cd "$MISE_PROJECT_ROOT"
 # shfmt -f detects shell files (extension or shebang) while walking the tree;
 # intersect with git ls-files so vendored scripts (.venv, node_modules, ...)
 # are skipped without per-repo ignore lists.
-# Discover both lists in the foreground so either command's failure stops the
-# task rather than looking like an empty set of shell files.
-tracked_files=$(git ls-files)
-detected_files=$(shfmt -f .)
-[[ -z "$tracked_files" || -z "$detected_files" ]] && exit 0
-mapfile -t shell_files < <(printf '%s\n' "$detected_files" | grep -Fx -f <(printf '%s\n' "$tracked_files") || true)
+# Both lists are NUL-separated because git quotes non-ASCII and other unusual
+# paths in its default output, which would never match shfmt's raw paths.
+# Discover both lists in the foreground, into files, so either command's
+# failure stops the task rather than looking like an empty set of shell files.
+lists=$(mktemp -d)
+trap 'rm -rf "$lists"' EXIT
+git ls-files -z >"$lists/tracked"
+shfmt -f=0 . >"$lists/detected"
+
+declare -A tracked=()
+while IFS= read -r -d '' file; do
+  tracked["$file"]=1
+done <"$lists/tracked"
+shell_files=()
+while IFS= read -r -d '' file; do
+  if [[ -n "${tracked["$file"]:-}" ]]; then
+    shell_files+=("$file")
+  fi
+done <"$lists/detected"
 [[ ${#shell_files[@]} -eq 0 ]] && exit 0
 
 shfmt -w -i 2 "${shell_files[@]}"
