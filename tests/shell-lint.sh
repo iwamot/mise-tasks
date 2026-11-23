@@ -47,6 +47,15 @@ cat >"$repo/a script" <<'SCRIPT'
 echo $missing
 SCRIPT
 expect_failure SC2086
+git -C "$repo" rm --quiet --force 'a script'
+
+# Paths that Git quotes in its default output are linted too.
+cat >"$repo/スクリプト.sh" <<'SCRIPT'
+#!/bin/bash
+echo $missing
+SCRIPT
+git -C "$repo" add 'スクリプト.sh'
+expect_failure SC2086
 
 # A failed Git listing must not turn into an empty successful inspection.
 printf 'broken' >"$repo/.git/index"
