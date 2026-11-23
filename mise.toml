@@ -18,7 +18,7 @@ node = "26.13.1"
 "aqua:mvdan/sh" = "3.14.1"
 "aqua:suzuki-shunsuke/ghalint" = "1.6.0"
 "aqua:suzuki-shunsuke/pinact" = "5.0.2"
-"aqua:zizmorcore/zizmor" = "1.32.0"
+"aqua:zizmorcore/zizmor" = "1.33.0"
 "gh" = "2.105.0"
 "github:github/gh-actions-lock" = { version = "v0.5.1", bin = "gh-actions-lock" }
 "github:iwamot/gitignore-prune" = "v1.0.5"
